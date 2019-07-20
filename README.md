@@ -4,10 +4,22 @@
 
 A collection of functions to rotate the values within a given two-dimensional array (i.e. an `Array` of `Array`s) clockwise by 90, 180 or 270 degrees. Potentially useful for, say, turning around game pieces or sprites. Provided as an ES6-compatible module.
 
+__Functions__
+- [rotate](#rotatearr-deg)
+- [transpose](#transposearr)
+- [mirror](#mirrorarr)
+- [mirrorTranspose](#mirrortransposearr)
+- [hflip](#hfliparr)
+- [vflip](#vfliparr)
+- wrappers/aliases:
+    + [rotate90CW](#rotate90cwarr)
+    + [rotate180CW](#rotate180cwarr)
+    + [rotate270CW](#rotate270cwarr)
+
 **Notes**
 - Source arrays are not directly modified.
 - Values within rows are reindexed directly from the source array, not copied or cloned. Object references will therefore remain unchanged.
-- Make sure that rows with arrays are all the same length. Results may be inconsistent otherwise.
+- Make sure that rows within arrays are all the same length. Results may be inconsistent otherwise.
 
 ## Installation
 
@@ -143,18 +155,6 @@ let o = mirrorTranspose(i);
 #### Returns
 The mirrored transpose of the given array.
 
-### rotate90CW(arr)
-
-A wrapper around `transpose`. Usage may potentially result in more readable code.
-
-### rotate180CW(arr)
-
-A wrapper around `mirror`. Usage may potentially result in more readable code.
-
-### rotate270CW(arr)
-
-A wrapper around `mirrorTranspose`. Usage may potentially result in more readable code.
-
 ### hflip(arr)
 
 Bonus function -- flips the array over its horizontal axis.
@@ -196,6 +196,18 @@ let o = vflip(input);
  * ]
  */
 ```
+
+### rotate90CW(arr)
+
+A wrapper around `transpose`. Usage may potentially result in more readable code.
+
+### rotate180CW(arr)
+
+A wrapper around `mirror`. Usage may potentially result in more readable code.
+
+### rotate270CW(arr)
+
+A wrapper around `mirrorTranspose`. Usage may potentially result in more readable code.
 
 ### Testing
 
