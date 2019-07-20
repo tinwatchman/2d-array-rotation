@@ -2,6 +2,9 @@
 =================
 > rotates two-dimensional arrays clockwise
 
+[![Build Status](https://travis-ci.org/tinwatchman/2d-array-rotation.svg?branch=master)](https://travis-ci.org/tinwatchman/2d-array-rotation)
+[![Coverage Status](https://coveralls.io/repos/github/tinwatchman/2d-array-rotation/badge.svg?branch=master)](https://coveralls.io/github/tinwatchman/2d-array-rotation?branch=master)
+
 A collection of functions to rotate the values within a given two-dimensional array (i.e. an `Array` of `Array`s) clockwise by 90, 180 or 270 degrees. Potentially useful for, say, turning around game pieces or sprites. Provided as an ES6-compatible module.
 
 __Functions__
