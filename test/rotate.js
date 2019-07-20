@@ -144,6 +144,18 @@ describe('rotate', () => {
 			let output2 = mirrorTranspose(input);
 			expect(output).to.equalArray(output2);
 		});
+		it('-900 degrees', () => {
+			let input = [
+				[1, 2, 3],
+				[4, 5, 6],
+				[7, 8, 9],
+				[10, 11, 12],
+				[13, 14, 15]
+			];
+			let output = rotate(input, -900);
+			let output2 = mirror(input);
+			expect(output).to.equalArray(output2);
+		});
 		it('-990 degrees', () => {
 			let input = [
 				[1, 2, 3],

@@ -15,7 +15,7 @@ exports.rotate270CW = rotate270CW;
 
 function transpose(a) {
   const w = a.length;
-  const h = getWidth(a);
+  const h = a[0].length;
   let b = new Array(h);
 
   for (let y = 0; y < h; y++) {
@@ -30,7 +30,7 @@ function transpose(a) {
 }
 
 function mirror(a) {
-  const w = getWidth(a);
+  const w = a[0].length;
   const h = a.length;
   let b = new Array(h);
 
@@ -48,7 +48,7 @@ function mirror(a) {
 
 function mirrorTranspose(a) {
   const w = a.length;
-  const h = getWidth(a);
+  const h = a[0].length;
   let b = new Array(h);
 
   for (let y = 0; y < h; y++) {
@@ -124,11 +124,5 @@ function rotate180CW(a) {
 
 function rotate270CW(a) {
   return mirrorTranspose(a);
-}
-
-function getWidth(a) {
-  return a.reduce((acc, row) => {
-    return Math.max(acc, row.length);
-  }, 0);
 }
 //# sourceMappingURL=2d-array-rotation.js.map

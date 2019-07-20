@@ -2,7 +2,7 @@
   "name": "2d-array-rotation",
   "type": "module",
   "version": "1.0.0",
-  "description": "Functions to rotate the values of a two-dimensional array 90 degrees, 180 degrees, or 270 degrees clockwise as needed.",
+  "description": "Functions to rotate the values of a two-dimensional array 90 degrees, 180 degrees, or 270 degrees clockwise",
   "main": "dist/2d-array-rotation.js",
   "module": "2d-array-rotation.js",
   "scripts": {

@@ -8,7 +8,7 @@
  */
 export function transpose(a) {
 	const w = a.length;
-	const h = getWidth(a);
+	const h = a[0].length;
 	let b = new Array(h);
 	for (let y=0; y<h; y++) {
 		b[y] = new Array(w);
@@ -26,7 +26,7 @@ export function transpose(a) {
  * @return {Array}   the mirror of the input
  */
 export function mirror(a) {
-	const w = getWidth(a);
+	const w = a[0].length;
 	const h = a.length;
 	let b = new Array(h);
 	for (let y=0; y<h; y++) {
@@ -47,7 +47,7 @@ export function mirror(a) {
  */
 export function mirrorTranspose(a) {
 	const w = a.length;
-	const h = getWidth(a);
+	const h = a[0].length;
 	let b = new Array(h);
 	for (let y=0; y<h; y++) {
 		b[y] = new Array(w);
@@ -155,21 +155,4 @@ export function rotate180CW(a) {
  */
 export function rotate270CW(a) {
 	return mirrorTranspose(a);
-}
-
-/**
- * Private functions
- */
-
-/**
- * Returns the length of the longest row in the given two-dimensional array. 
- * Necessary to avoid issues with different row lengths (which is a possible 
- * edge case, right? Right? It's not just me?...)
- * @param  {Array}  a two-dimensional array
- * @return {Number}
- */
-function getWidth(a) {
-	return a.reduce((acc, row) => {
-		return Math.max(acc, row.length);
-	}, 0);
 }

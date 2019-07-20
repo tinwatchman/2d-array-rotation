@@ -120,19 +120,4 @@ describe('transpose', () => {
 		let output = transpose(input);
 		expect(output).to.equalArray(expected);
 	});
-	it('should work on arrays with different row lengths', function() {
-		let input = [
-			[ 1, 2, 3 ],
-			[ 4, 5 ],
-			[ 6, 7, 8 ]
-		];
-		let expected = [
-			[ 6, 4, 1 ],
-			[ 7, 5, 2 ],
-			[ 8, null, 3 ]
-		];
-		let output = transpose(input);
-		expect(output).to.be.a('array');
-		expect(output).to.equalArray(expected);
-	});
 });

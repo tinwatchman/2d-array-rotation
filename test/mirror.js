@@ -120,19 +120,4 @@ describe('mirror', () => {
 		let output = mirror(input);
 		expect(output).to.equalArray(expected);
 	});
-	it('should work on arrays with different row lengths', function() {
-		let input = [
-			[ 1, 2, 3 ],
-			[ 4, 5 ],
-			[ 6 ]
-		];
-		let expected = [
-			[ null, null, 6 ],
-			[ null, 5, 4 ],
-			[ 3, 2, 1 ]
-		];
-		let output = mirror(input);
-		expect(output).to.be.a('array');
-		expect(output).to.equalArray(expected);
-	});
 });
