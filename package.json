@@ -9,7 +9,7 @@
     "package": "gulp",
     "pretest": "gulp",
     "test": "mocha --require @babel/register",
-    "coverage": "nyc npm run test"
+    "coverage": "nyc npm run test && nyc report --reporter=text-lcov | coveralls"
   },
   "author": {
     "name": "Jon Stout",
@@ -24,11 +24,13 @@
     "@babel/preset-env": "^7.5.4",
     "@babel/register": "^7.4.4",
     "chai": "^4.2.0",
+    "coveralls": "^3.0.5",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0-beta.2",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-strip-comments": "^2.5.2",
     "mocha": "^6.1.4",
+    "mocha-lcov-reporter": "^1.3.0",
     "nyc": "^14.1.1"
   }
 }
