@@ -16,7 +16,7 @@ __Functions__
     + [rotate180CW](#rotate180cwarr)
     + [rotate270CW](#rotate270cwarr)
 
-**Notes**
+**Additional Notes**
 - Source arrays are not directly modified.
 - Values within rows are reindexed directly from the source array, not copied or cloned. Object references will therefore remain unchanged.
 - Make sure that rows within arrays are all the same length. Results may be inconsistent otherwise.
