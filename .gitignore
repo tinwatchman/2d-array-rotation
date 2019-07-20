@@ -8,6 +8,5 @@ Thumbs.db
 node_modules/*
 *.sublime-project
 *.sublime-workspace
-package-lock.json
 .nyc_output
 coverage

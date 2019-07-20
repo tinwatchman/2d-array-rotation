@@ -2,7 +2,7 @@
   "name": "2d-array-rotation",
   "type": "module",
   "version": "1.0.0",
-  "description": "Functions to rotate the values of a two-dimensional array 90 degrees, 180 degrees, or 270 degrees clockwise",
+  "description": "Rotates two-dimensional arrays clockwise by 90 degrees, 180 degrees, or 270 degrees",
   "main": "dist/2d-array-rotation.js",
   "module": "2d-array-rotation.js",
   "scripts": {
@@ -11,13 +11,27 @@
     "test": "mocha --require @babel/register",
     "coverage": "nyc npm run test && nyc report --reporter=text-lcov | coveralls"
   },
+  "engines": {
+    "node": ">=12.4.0"
+  },
+  "keywords": [
+    "2d",
+    "array",
+    "rotate",
+    "rotation",
+    "transpose",
+    "mirror",
+    "flip",
+    "two-dimensional"
+  ],
   "author": {
     "name": "Jon Stout",
     "url": "http://www.jonstout.net/"
   },
   "license": "MIT",
-  "engines": {
-    "node": ">=12.4.0"
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tinwatchman/2d-array-rotation.git"
   },
   "devDependencies": {
     "@babel/core": "^7.5.4",

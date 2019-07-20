@@ -2,7 +2,12 @@
 =================
 > rotates two-dimensional arrays clockwise
 
-A collection of functions to rotate the values within a given two-dimensional array (i.e. an `Array` of `Arrays`) clockwise by 90, 180 or 270 degrees. Potentially useful for, say, turning around game pieces or sprites that are represented in code as 2d arrays. Provided as an ES6-compatible module.
+A collection of functions to rotate the values within a given two-dimensional array (i.e. an `Array` of `Array`s) clockwise by 90, 180 or 270 degrees. Potentially useful for, say, turning around game pieces or sprites. Provided as an ES6-compatible module.
+
+**Notes**
+- Source arrays are not directly modified.
+- Values within rows are reindexed directly from the source array, not copied or cloned. Object references will therefore remain unchanged.
+- Make sure that rows with arrays are all the same length. Results may be inconsistent otherwise.
 
 ## Installation
 
