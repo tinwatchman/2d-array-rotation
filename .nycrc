@@ -1,0 +1,16 @@
+{
+	"check-coverage": true,
+	"branches": 95,
+	"lines": 95,
+	"functions": 100,
+	"statements": 95,
+	"reporter": [
+		"lcov",
+		"html",
+		"text-summary"
+	],
+	"include": [
+		"2d-array-rotation.js"
+	],
+	"sourceMap": false
+}

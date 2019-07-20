@@ -69,29 +69,59 @@ describe('rotate', () => {
 		expect(output).to.be.a('array');
 		expect(output).to.equalArray(output2);
 	});
-	it('should throw an error when given a non-right angle', () => {
-		let test = function() {
+	describe('should throw an error when given a non-right angle', () => {
+		it('via test functions', () => {
+			let test = function() {
+				let input = [
+					[1, 2, 3],
+					[4, 5, 6],
+					[7, 8, 9],
+					[10, 11, 12],
+					[13, 14, 15]
+				];
+				return rotate(input, 45);
+			};
+			let test2 = function() {
+				let input = [
+					[1, 2, 3],
+					[4, 5, 6],
+					[7, 8, 9],
+					[10, 11, 12],
+					[13, 14, 15]
+				];
+				return rotate(input, 30);
+			};
+			expect(test).to.throw;
+			expect(test2).to.throw;
+		});
+		it('via try-catch', () => {
+			// and one more time, to make sure nyc gets it
 			let input = [
 				[1, 2, 3],
 				[4, 5, 6],
-				[7, 8, 9],
-				[10, 11, 12],
-				[13, 14, 15]
+				[7, 8, 9]
 			];
-			return rotate(input, 45);
-		};
-		let test2 = function() {
-			let input = [
-				[1, 2, 3],
-				[4, 5, 6],
-				[7, 8, 9],
-				[10, 11, 12],
-				[13, 14, 15]
-			];
-			return rotate(input, 30);
-		};
-		expect(test).to.throw;
-		expect(test2).to.throw;
+			let output = null;
+			let err = null;
+			try {
+				output = rotate(input, 20);
+			} catch (e) {
+				err = e;
+			}
+			expect(output).to.be.null;
+			expect(err).not.to.be.null;
+		});
+	});
+	it('should return the original array if 0 degrees given', () => {
+		let input = [
+			[1, 2, 3],
+			[4, 5, 6],
+			[7, 8, 9],
+			[10, 11, 12],
+			[13, 14, 15]
+		];
+		let output = rotate(input, 0);
+		expect(input).to.equal(output);
 	});
 	describe('should be able to handle degrees higher than 360', function() {
 		it('450 degrees', () => {
