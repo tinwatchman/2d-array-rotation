@@ -3,8 +3,21 @@
   "type": "module",
   "version": "1.0.1",
   "description": "Rotates two-dimensional arrays clockwise by 90 degrees, 180 degrees, or 270 degrees",
+  "author": {
+    "name": "Jon Stout",
+    "url": "http://www.jonstout.net/"
+  },
+  "license": "MIT",
   "main": "dist/2d-array-rotation.js",
   "module": "2d-array-rotation.js",
+  "browser": "dist/2d-array-rotation.min.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tinwatchman/2d-array-rotation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tinwatchman/2d-array-rotation/issues"
+  },
   "scripts": {
     "package": "gulp",
     "pretest": "gulp",
@@ -25,26 +38,16 @@
     "two-dimensional",
     "transform"
   ],
-  "author": {
-    "name": "Jon Stout",
-    "url": "http://www.jonstout.net/"
-  },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:tinwatchman/2d-array-rotation.git"
-  },
-  "bugs": {
-    "url": "https://github.com/tinwatchman/2d-array-rotation/issues"
-  },
   "devDependencies": {
     "@babel/core": "^7.5.4",
     "@babel/preset-env": "^7.5.4",
     "@babel/register": "^7.4.4",
+    "babel-preset-minify": "^0.5.0",
     "chai": "^4.2.0",
     "coveralls": "^3.0.5",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0-beta.2",
+    "gulp-rename": "^1.4.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-strip-comments": "^2.5.2",
     "mocha": "^6.1.4",
