@@ -1,6 +1,5 @@
 2d-array-rotation
 =================
-
 [![Build Status](https://travis-ci.org/tinwatchman/2d-array-rotation.svg?branch=master)](https://travis-ci.org/tinwatchman/2d-array-rotation)
 [![Coverage Status](https://coveralls.io/repos/github/tinwatchman/2d-array-rotation/badge.svg?branch=master)](https://coveralls.io/github/tinwatchman/2d-array-rotation?branch=master)
 
@@ -13,15 +12,16 @@ __Functions__
 - [rotate](#rotatearr-deg)
 - [hflip](#hfliparr)
 - [vflip](#vfliparr)
-- wrappers/aliases:
+- *wrappers/aliases:*
     + [rotate90CW](#rotate90cwarr)
     + [rotate180CW](#rotate180cwarr)
     + [rotate270CW](#rotate270cwarr)
 
-**Additional Notes**
+__Additional Notes__
 - Source arrays are not directly modified.
+- Row contents can be of any valid type -- `Number`, `String`, `Object`, etc.
 - Values within rows are reindexed directly from the source array, not copied or cloned. Object references will therefore remain unchanged.
-- Make sure that rows within arrays are all the same length. Results may be inconsistent otherwise.
+- Arrays can be either square (e.g. 3x3, 4x4) or rectangular (e.g. 3x5, 4x8, etc.). However, make sure that the rows within the arrays are all the same length. Results will be inconsistent otherwise.
 
 ## Installation
 
@@ -49,7 +49,7 @@ const mirror = require('2d-array-rotation').mirror;
 
 #### transpose(arr)
 
-Flips the given array's values over its diagonal, equivalent to rotating it by 90 degrees clockwise.
+Flips the given array's values over its diagonal, equivalent to rotating it 90 degrees clockwise.
 
 ```javascript
 let i = [
@@ -75,7 +75,7 @@ The transpose of the input.
 
 #### mirror(arr)
 
-Flips the given array's values over the horizontal and vertical axes, the equivalent of rotating it 180 degrees clockwise.
+Flips the given array's values over its horizontal and vertical axes, the equivalent of rotating it 180 degrees clockwise.
 
 ```javascript
 let i = [
@@ -103,7 +103,7 @@ The mirrored form of the given array.
 
 #### mirrorTranspose(arr)
 
-Flips the given array's values over its diagonal and the horizontal and vertical axes. Equivalent to rotating it 270 degrees clockwise.
+Flips the given array's values over its diagonal as well as the horizontal and vertical axes. Equivalent to rotating it 270 degrees clockwise.
 
 ```javascript
 let i = [
@@ -129,7 +129,7 @@ The mirrored transpose of the given array.
 
 #### rotate(arr, deg)
 
-Master function that calls the others depending on the input. Rotates the given two-dimensional array by the given number of degrees.
+Master function that calls `transpose`, `mirror`, or `mirrorTranspose`, depending on the input. Rotates the given two-dimensional array by the given number of degrees.
 
 ```javascript
 let i = [
@@ -154,7 +154,7 @@ let o = rotate(i, 90);
 + `deg` (`Number`): Number of degrees to rotate. Must be a multiple of 90, or an error will be thrown.
 
 ##### Returns
-A two-dimensional `Array` with the values rotated; or, if rotating by 0 or 360 degrees is requested, the original `arr` itself without any modifications.
+A two-dimensional `Array` with the values rotated; or, if rotating by 0 or 360 degrees, the original `arr` itself without any modifications.
 
 #### hflip(arr)
 

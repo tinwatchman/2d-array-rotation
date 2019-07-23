@@ -1,7 +1,7 @@
 {
   "name": "2d-array-rotation",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Rotates two-dimensional arrays clockwise by 90 degrees, 180 degrees, or 270 degrees",
   "main": "dist/2d-array-rotation.js",
   "module": "2d-array-rotation.js",
@@ -22,7 +22,8 @@
     "transpose",
     "mirror",
     "flip",
-    "two-dimensional"
+    "two-dimensional",
+    "transform"
   ],
   "author": {
     "name": "Jon Stout",
