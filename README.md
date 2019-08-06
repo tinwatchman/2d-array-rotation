@@ -68,7 +68,7 @@ let o = rotate90(i);
 + `arr` (`Array`): a two-dimensional array
 
 ##### Returns
-A new two-dimensional array representing the rotated form of the input.
+A new two-dimensional `Array` that represents the rotated form of the input.
 
 #### rotate180(arr)
 
@@ -96,7 +96,7 @@ let o = rotate180(i);
 + `arr` (`Array`): a two-dimensional array
 
 ##### Returns
-A new two-dimensional array representing the rotated form of the input.
+A new two-dimensional `Array` that represents the rotated form of the input.
 
 #### rotate270(arr)
 
@@ -122,7 +122,7 @@ let o = rotate270(i);
 + `arr` (`Array`): a two-dimensional array
 
 ##### Returns
-A new two-dimensional array representing the rotated form of the input.
+A new two-dimensional `Array` that represents the rotated form of the input.
 
 #### rotate(arr, deg)
 
@@ -155,7 +155,7 @@ let o3 = rotate(i, 450); // returns same as above
 + `deg` (`Number`): Number of degrees to rotate. Must be a multiple of 90, or an error will be thrown.
 
 ##### Returns
-A new two-dimensional array representing the rotated form of the input; or, if told to rotate by 0 or 360 degrees, the original `arr` itself without any modifications.
+A new two-dimensional `Array` that represents the rotated form of the input; or, if told to rotate by 0 or 360 degrees, the original `arr` itself without any modifications.
 
 #### hflip(arr)
 
