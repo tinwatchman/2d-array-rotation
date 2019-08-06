@@ -10,9 +10,9 @@ chai.use(require("./helpers/equal-array"));
  */
 
 describe('minified version', function() {
-	describe('transpose', function() {
+	describe('rotate90', function() {
 		it('exists', function() {
-			expect(min.transpose).to.be.a('function');
+			expect(min.rotate90).to.be.a('function');
 		});
 		it('works', function() {
 			let input = [
@@ -20,7 +20,7 @@ describe('minified version', function() {
 				[ 4, 5, 6 ],
 				[ 7, 8, 9 ]
 			];
-			let output = min.transpose(input);
+			let output = min.rotate90(input);
 			expect(output).to.equalArray([
 				[ 7, 4, 1 ],
 				[ 8, 5, 2 ],
@@ -28,9 +28,9 @@ describe('minified version', function() {
 			]);
 		});
 	});
-	describe('mirror', function() {
+	describe('rotate180', function() {
 		it('exists', function() {
-			expect(min.mirror).to.be.a('function');
+			expect(min.rotate180).to.be.a('function');
 		});
 		it('works', function() {
 			let input = [
@@ -40,7 +40,7 @@ describe('minified version', function() {
 				[10, 11, 12],
 				[13, 14, 15]
 			];
-			let output = min.mirror(input);
+			let output = min.rotate180(input);
 			expect(output).to.equalArray([
 				[15,14,13],
 				[12,11,10],
@@ -50,9 +50,9 @@ describe('minified version', function() {
 			]);
 		});
 	});
-	describe('mirrorTranspose', function() {
+	describe('rotate270', function() {
 		it('exists', function() {
-			expect(min.mirrorTranspose).to.be.a('function');
+			expect(min.rotate270).to.be.a('function');
 		});
 		it('works', function() {
 			let input = [
@@ -60,7 +60,7 @@ describe('minified version', function() {
 				[ 4, 5, 6 ],
 				[ 7, 8, 9 ]
 			];
-			let output = min.mirrorTranspose(input);
+			let output = min.rotate270(input);
 			expect(output).to.equalArray([
 				[ 3, 6, 9 ],
 				[ 2, 5, 8 ],
@@ -77,15 +77,6 @@ describe('minified version', function() {
 		});
 		it('vflip exists', () => {
 			expect(min.vflip).to.be.a('function');
-		});
-		it('rotate90CW exists', () => {
-			expect(min.rotate90CW).to.be.a('function');
-		});
-		it('rotate180CW exists', () => {
-			expect(min.rotate180CW).to.be.a('function');
-		});
-		it('rotate270CW exists', () => {
-			expect(min.rotate270CW).to.be.a('function');
 		});
 	});
 });

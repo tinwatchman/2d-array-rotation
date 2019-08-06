@@ -3,17 +3,14 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.transpose = transpose;
-exports.mirror = mirror;
-exports.mirrorTranspose = mirrorTranspose;
+exports.rotate90 = rotate90;
+exports.rotate180 = rotate180;
+exports.rotate270 = rotate270;
 exports.hflip = hflip;
 exports.vflip = vflip;
 exports.rotate = rotate;
-exports.rotate90CW = rotate90CW;
-exports.rotate180CW = rotate180CW;
-exports.rotate270CW = rotate270CW;
 
-function transpose(a) {
+function rotate90(a) {
   const w = a.length;
   const h = a[0].length;
   let b = new Array(h);
@@ -29,7 +26,7 @@ function transpose(a) {
   return b;
 }
 
-function mirror(a) {
+function rotate180(a) {
   const w = a[0].length;
   const h = a.length;
   let b = new Array(h);
@@ -46,7 +43,7 @@ function mirror(a) {
   return b;
 }
 
-function mirrorTranspose(a) {
+function rotate270(a) {
   const w = a.length;
   const h = a[0].length;
   let b = new Array(h);
@@ -104,25 +101,13 @@ function rotate(a, deg) {
   const d = (deg % 360 + 360) % 360;
 
   if (d === 90) {
-    return transpose(a);
+    return rotate90(a);
   } else if (d === 180) {
-    return mirror(a);
+    return rotate180(a);
   } else if (d === 270) {
-    return mirrorTranspose(a);
+    return rotate270(a);
   }
 
   return a;
-}
-
-function rotate90CW(a) {
-  return transpose(a);
-}
-
-function rotate180CW(a) {
-  return mirror(a);
-}
-
-function rotate270CW(a) {
-  return mirrorTranspose(a);
 }
 //# sourceMappingURL=2d-array-rotation.js.map

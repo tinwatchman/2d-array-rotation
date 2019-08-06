@@ -1,12 +1,11 @@
 'use strict';
 
 /**
- * Flips the given two-dimensional array over its diagonal (or, in other words, 
- * rotates it 90 degrees clockwise.)
+ * Rotates the given array 90 degrees clockwise.
  * @param  {Array} a two-dimensional array
- * @return {Array}   the transpose of the input
+ * @return {Array}   2d array representing a rotated version of the input
  */
-export function transpose(a) {
+export function rotate90(a) {
 	const w = a.length;
 	const h = a[0].length;
 	let b = new Array(h);
@@ -20,12 +19,11 @@ export function transpose(a) {
 }
 
 /**
- * Flips the given two-dimensional array over both horizontally and vertically 
- * (which is essentially the same as rotating it 180 degrees clockwise.)
+ * Rotates the given 2d array 180 degrees clockwise.
  * @param  {Array} a two-dimensional array
- * @return {Array}   the mirror of the input
+ * @return {Array}   2d array representing a rotated version of the input
  */
-export function mirror(a) {
+export function rotate180(a) {
 	const w = a[0].length;
 	const h = a.length;
 	let b = new Array(h);
@@ -40,12 +38,11 @@ export function mirror(a) {
 }
 
 /**
- * The equivalent of both mirroring and transposing the given two-dimensional 
- * array. Equivalent to rotating it 270 degrees clockwise.
+ * Rotates the given 2d array 270 degrees clockwise.
  * @param  {Array} a two-dimensional array
- * @return {Array}   the mirrored transpose of the input
+ * @return {Array}   2d array representing a rotated version of the input
  */
-export function mirrorTranspose(a) {
+export function rotate270(a) {
 	const w = a.length;
 	const h = a[0].length;
 	let b = new Array(h);
@@ -97,10 +94,6 @@ export function vflip(a) {
 }
 
 /**
- * Wrapper functions
- */
-
-/**
  * Rotates the given two-dimensional array by the given right angle in degrees. 
  * Degrees must be a multiple of 90. Returns the original input if told to 
  * rotate by 0 or 360 degrees.
@@ -117,42 +110,12 @@ export function rotate(a, deg) {
 	}
 	const d = ((deg % 360) + 360) % 360;
 	if (d === 90) {
-		return transpose(a);
+		return rotate90(a);
 	} else if (d === 180) {
-		return mirror(a);
+		return rotate180(a);
 	} else if (d === 270) {
-		return mirrorTranspose(a);
+		return rotate270(a);
 	}
 	// otherwise, if it's 0 degrees
 	return a;
-}
-
-/**
- * Rotates given array 90 degrees clockwise. Wrapper around `transpose.`
- * @param  {Array} a two-dimensional array
- * @return {Array}
- * @see transpose
- */
-export function rotate90CW(a) {
-	return transpose(a);
-}
-
-/**
- * Rotates given array 180 degrees clockwise. Wrapper around `mirror.`
- * @param  {Array} a two-dimensional array to rotate
- * @return {Array}
- * @see mirror
- */
-export function rotate180CW(a) {
-	return mirror(a);
-}
-
-/**
- * Rotates given array 270 degrees clockwise. Wrapper around `mirrorTranspose.`
- * @param  {Array} a two-dimensional array to rotate
- * @return {Array}
- * @see mirrorTranspose
- */
-export function rotate270CW(a) {
-	return mirrorTranspose(a);
 }

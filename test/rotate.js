@@ -1,13 +1,13 @@
 'use strict';
 
 import {rotate} from "../2d-array-rotation.js";
-import {transpose, mirror, mirrorTranspose} from "../2d-array-rotation.js";
+import {rotate90, rotate180, rotate270} from "../2d-array-rotation.js";
 import * as chai from 'chai';
 import {expect} from 'chai';
 chai.use(require("./helpers/equal-array"));
 
 describe('rotate', () => {
-	it('should return transpose result when rotating by 90 degrees', () => {
+	it('should return rotate90 result when rotating by 90 degrees', () => {
 		let input = [
 			[1, 2, 3],
 			[4, 5, 6],
@@ -16,11 +16,11 @@ describe('rotate', () => {
 			[13, 14, 15]
 		];
 		let output = rotate(input, 90);
-		let output2 = transpose(input);
+		let output2 = rotate90(input);
 		expect(output).to.be.a('array');
 		expect(output).to.equalArray(output2);
 	});
-	it('should return mirror result when rotating by 180 degrees', () => {
+	it('should return rotate180 result when rotating by 180 degrees', () => {
 		let input = [
 			[1, 2, 3],
 			[4, 5, 6],
@@ -29,10 +29,10 @@ describe('rotate', () => {
 			[13, 14, 15]
 		];
 		let output = rotate(input, 180);
-		let output2 = mirror(input);
+		let output2 = rotate180(input);
 		expect(output).to.equalArray(output2);
 	});
-	it('should return mirrorTranspose result when rotating by 270 degrees', () => {
+	it('should return rotate270 result when rotating by 270 degrees', () => {
 		let input = [
 			[1, 2, 3],
 			[4, 5, 6],
@@ -41,10 +41,10 @@ describe('rotate', () => {
 			[13, 14, 15]
 		];
 		let output = rotate(input, 270);
-		let output2 = mirrorTranspose(input);
+		let output2 = rotate270(input);
 		expect(output).to.equalArray(output2);
 	});
-	it('should return mirrorTranspose result when rotating by -90 degrees', () => {
+	it('should return rotate270 result when rotating by -90 degrees', () => {
 		let input = [
 			[1, 2, 3],
 			[4, 5, 6],
@@ -53,10 +53,10 @@ describe('rotate', () => {
 			[13, 14, 15]
 		];
 		let output = rotate(input, -90);
-		let output2 = mirrorTranspose(input);
+		let output2 = rotate270(input);
 		expect(output).to.equalArray(output2);
 	});
-	it('should return transpose result when rotating by -270 degrees', () => {
+	it('should return rotate90 result when rotating by -270 degrees', () => {
 		let input = [
 			[1, 2, 3],
 			[4, 5, 6],
@@ -65,7 +65,7 @@ describe('rotate', () => {
 			[13, 14, 15]
 		];
 		let output = rotate(input, -270);
-		let output2 = transpose(input);
+		let output2 = rotate90(input);
 		expect(output).to.be.a('array');
 		expect(output).to.equalArray(output2);
 	});
@@ -133,7 +133,7 @@ describe('rotate', () => {
 				[13, 14, 15]
 			];
 			let output = rotate(input, 450);
-			let output2 = transpose(input);
+			let output2 = rotate90(input);
 			expect(output).to.equalArray(output2);
 		});
 		it('900 degrees', () => {
@@ -145,7 +145,7 @@ describe('rotate', () => {
 				[13, 14, 15]
 			];
 			let output = rotate(input, 900);
-			let output2 = mirror(input);
+			let output2 = rotate180(input);
 			expect(output).to.equalArray(output2);
 		});
 		it('990 degrees', () => {
@@ -157,7 +157,7 @@ describe('rotate', () => {
 				[13, 14, 15]
 			];
 			let output = rotate(input, 990);
-			let output2 = mirrorTranspose(input);
+			let output2 = rotate270(input);
 			expect(output).to.equalArray(output2);
 		});
 	});
@@ -171,7 +171,7 @@ describe('rotate', () => {
 				[13, 14, 15]
 			];
 			let output = rotate(input, -450);
-			let output2 = mirrorTranspose(input);
+			let output2 = rotate270(input);
 			expect(output).to.equalArray(output2);
 		});
 		it('-900 degrees', () => {
@@ -183,7 +183,7 @@ describe('rotate', () => {
 				[13, 14, 15]
 			];
 			let output = rotate(input, -900);
-			let output2 = mirror(input);
+			let output2 = rotate180(input);
 			expect(output).to.equalArray(output2);
 		});
 		it('-990 degrees', () => {
@@ -195,7 +195,7 @@ describe('rotate', () => {
 				[13, 14, 15]
 			];
 			let output = rotate(input, -990);
-			let output2 = transpose(input);
+			let output2 = rotate90(input);
 			expect(output).to.equalArray(output2);
 		});
 	});

@@ -1,11 +1,11 @@
 'use strict';
 
-import {mirror} from "../2d-array-rotation.js";
+import {rotate180} from "../2d-array-rotation.js";
 import * as chai from 'chai';
 import {expect} from 'chai';
 chai.use(require("./helpers/equal-array"));
 
-describe('mirror', () => {
+describe('rotate180', () => {
 	it('should work on a 3x3 array', function() {
 		let input = [
 			[ 1, 2, 3 ],
@@ -17,7 +17,7 @@ describe('mirror', () => {
 			[ 6, 5, 4 ],
 			[ 3, 2, 1 ]
 		];
-		let output = mirror(input);
+		let output = rotate180(input);
 		expect(output).to.be.a('array');
 		expect(output).to.equalArray(expected);
 	});
@@ -36,7 +36,7 @@ describe('mirror', () => {
 			[6,5,4],
 			[3,2,1]
 		];
-		let output = mirror(input);
+		let output = rotate180(input);
 		expect(output).to.equalArray(expected);
 	});
 	it('should work on a 4x3 array', function() {
@@ -50,7 +50,7 @@ describe('mirror', () => {
 			[8,7,6,5],
 			[4,3,2,1]
 		];
-		let output = mirror(input);
+		let output = rotate180(input);
 		expect(output).to.equalArray(expected);
 	});
 	it('should work on a 5x3 array', function() {
@@ -64,7 +64,7 @@ describe('mirror', () => {
 			[10,9,8,7,6],
 			[5,4,3,2,1]
 		];
-		let output = mirror(input);
+		let output = rotate180(input);
 		expect(output).to.equalArray(expected);
 	});
 	it('should work on a 5x6 array', function() {
@@ -84,7 +84,7 @@ describe('mirror', () => {
 			[10,9,8,7,6],
 			[5,4,3,2,1]
 		];
-		let output = mirror(input);
+		let output = rotate180(input);
 		expect(output).to.equalArray(expected);
 	});
 	it('should preserve object references', function() {
@@ -99,7 +99,7 @@ describe('mirror', () => {
 			[ six, 5, 4 ],
 			[ 3, 2, 1 ]
 		];
-		let output = mirror(input);
+		let output = rotate180(input);
 		expect(output).to.be.a('array');
 		expect(output).to.equalArray(expected);
 		expect(output[1][0]).to.be.a('object');
@@ -117,7 +117,7 @@ describe('mirror', () => {
 			[ '6', '5', '4' ],
 			[ '3', '2', '1' ]
 		];
-		let output = mirror(input);
+		let output = rotate180(input);
 		expect(output).to.equalArray(expected);
 	});
 });
