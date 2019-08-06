@@ -6,22 +6,17 @@
 A collection of functions to rotate the values within a given two-dimensional array (i.e. an `Array` of `Array`s) clockwise by 90, 180 or 270 degrees. Potentially useful for -- say -- manipulating game pieces or sprites, among other possible applications. Provided as an ES6-compatible module.
 
 __Functions__
-- [transpose](#transposearr)
-- [mirror](#mirrorarr)
-- [mirrorTranspose](#mirrortransposearr)
+- [rotate90](#rotate90arr)
+- [rotate180](#rotate180arr)
+- [rotate270](#rotate270arr)
 - [rotate](#rotatearr-deg)
 - [hflip](#hfliparr)
 - [vflip](#vfliparr)
-- *wrappers/aliases:*
-    + [rotate90CW](#rotate90cwarr)
-    + [rotate180CW](#rotate180cwarr)
-    + [rotate270CW](#rotate270cwarr)
 
 __Additional Notes__
+- Can handle both square (e.g. 3x3) and rectangular (e.g. 3x5, 4x8) two-dimensional arrays. Just make sure that the rows are all the same length; results may be inconsistent otherwise.
 - Source arrays are not directly modified.
-- Row contents can be of any valid type -- `Number`, `String`, `Object`, etc.
-- Values within rows are reindexed directly from the source array, not copied or cloned. Object references will therefore remain unchanged.
-- Arrays can be either square (e.g. 3x3, 4x4) or rectangular (e.g. 3x5, 4x8, etc.). However, make sure that the rows within the arrays are all the same length. Results will be inconsistent otherwise.
+- Values within rows are re-indexed directly from the source array, not copied or cloned. Object types and references will remain consistent.
 
 ## Installation
 
@@ -31,25 +26,27 @@ npm install 2d-array-rotation
 
 ## Usage
 
-### Via ES6-style imports
+### Importing
+
+#### Via ES6-style imports
 
 ```javascript
-import {transpose, mirror} from "2d-array-rotation";
+import {rotate, rotate90} from "2d-array-rotation";
 ```
 
-### Via standard node.js requires
+#### Via standard node.js requires
 
 ```javascript
-const transpose = require('2d-array-rotation').transpose;
-const mirror = require('2d-array-rotation').mirror;
+const rotate = require('2d-array-rotation').rotate;
+const rotate90 = require('2d-array-rotation').rotate90;
 // and so on
 ```
 
-## Functions
+### Functions
 
-#### transpose(arr)
+#### rotate90(arr)
 
-Flips the given array's values over its diagonal, equivalent to rotating it 90 degrees clockwise.
+Rotates the given two-dimensional array 90 degrees clockwise.
 
 ```javascript
 let i = [
@@ -57,7 +54,7 @@ let i = [
     [ 4, 5, 6 ],
     [ 7, 8, 9 ]
 ];
-let o = transpose(i);
+let o = rotate90(i);
 /**
  * Result: [
  * [ 7, 4, 1 ],
@@ -71,11 +68,11 @@ let o = transpose(i);
 + `arr` (`Array`): a two-dimensional array
 
 ##### Returns
-The transpose of the input.
+A new two-dimensional array representing the rotated form of the input.
 
-#### mirror(arr)
+#### rotate180(arr)
 
-Flips the given array's values over its horizontal and vertical axes, the equivalent of rotating it 180 degrees clockwise.
+Rotates the given two-dimensional array 180 degrees clockwise.
 
 ```javascript
 let i = [
@@ -84,7 +81,7 @@ let i = [
     [7, 8, 9],
     [10, 11, 12]
 ];
-let o = mirror(i);
+let o = rotate180(i);
 /**
  * Result: [
  * [12, 11, 10],
@@ -99,11 +96,11 @@ let o = mirror(i);
 + `arr` (`Array`): a two-dimensional array
 
 ##### Returns
-The mirrored form of the given array.
+A new two-dimensional array representing the rotated form of the input.
 
-#### mirrorTranspose(arr)
+#### rotate270(arr)
 
-Flips the given array's values over its diagonal as well as the horizontal and vertical axes. Equivalent to rotating it 270 degrees clockwise.
+Rotates the given two-dimensional array 270 degrees clockwise.
 
 ```javascript
 let i = [
@@ -111,7 +108,7 @@ let i = [
     [ 4, 5, 6 ],
     [ 7, 8, 9 ]
 ];
-let o = mirrorTranspose(i);
+let o = rotate270(i);
 /**
  * Result: [
  * [ 3, 6, 9 ],
@@ -125,11 +122,11 @@ let o = mirrorTranspose(i);
 + `arr` (`Array`): a two-dimensional array
 
 ##### Returns
-The mirrored transpose of the given array.
+A new two-dimensional array representing the rotated form of the input.
 
 #### rotate(arr, deg)
 
-Master function that calls `transpose`, `mirror`, or `mirrorTranspose`, depending on the input. Rotates the given two-dimensional array by the given number of degrees.
+Rotates the given two-dimensional array by the given number of degrees clockwise. Calls `rotate90`, `rotate180`, or `rotate270`, depending on the input. 
 
 ```javascript
 let i = [
@@ -147,6 +144,10 @@ let o = rotate(i, 90);
  * [15, 12, 9, 6, 3]
  * ]
  */
+// note that this function can also handle negative degree values...
+let o2 = rotate(i, -270); // returns same as above
+// ... and degree values higher than 360
+let o3 = rotate(i, 450); // returns same as above
 ```
 
 ##### Parameters
@@ -154,11 +155,11 @@ let o = rotate(i, 90);
 + `deg` (`Number`): Number of degrees to rotate. Must be a multiple of 90, or an error will be thrown.
 
 ##### Returns
-A two-dimensional `Array` with the values rotated; or, if rotating by 0 or 360 degrees, the original `arr` itself without any modifications.
+A new two-dimensional array representing the rotated form of the input; or, if told to rotate by 0 or 360 degrees, the original `arr` itself without any modifications.
 
 #### hflip(arr)
 
-Bonus function -- flips the array over its horizontal axis.
+Bonus function -- flips the array horizontally.
 
 ```javascript
 let input = [
@@ -180,7 +181,7 @@ let o = hflip(input);
 
 #### vflip(arr)
 
-Bonus function -- flips the array over its vertical axis.
+Bonus function -- flips the array vertically.
 
 ```javascript
 let input = [
@@ -197,18 +198,6 @@ let o = vflip(input);
  * ]
  */
 ```
-
-#### rotate90CW(arr)
-
-A wrapper around `transpose`. Usage may potentially result in more readable code.
-
-#### rotate180CW(arr)
-
-A wrapper around `mirror`. Usage may potentially result in more readable code.
-
-#### rotate270CW(arr)
-
-A wrapper around `mirrorTranspose`. Usage may potentially result in more readable code.
 
 ## Testing
 
