@@ -24,9 +24,6 @@
     "test": "mocha --require @babel/register",
     "coverage": "nyc npm run test && nyc report --reporter=text-lcov | coveralls"
   },
-  "engines": {
-    "node": ">=12.4.0"
-  },
   "keywords": [
     "2d",
     "array",
