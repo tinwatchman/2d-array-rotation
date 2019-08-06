@@ -11,6 +11,9 @@
   "main": "dist/2d-array-rotation.js",
   "module": "2d-array-rotation.js",
   "browser": "dist/2d-array-rotation.min.js",
+  "engines": {
+    "node": ">=10.16.1"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:tinwatchman/2d-array-rotation.git"
@@ -33,7 +36,14 @@
     "mirror",
     "flip",
     "two-dimensional",
-    "transform"
+    "transform",
+    "vertical",
+    "horizontal",
+    "reindex",
+    "turn",
+    "spin",
+    "swivel",
+    "revolve"
   ],
   "devDependencies": {
     "@babel/core": "^7.5.4",
