@@ -205,6 +205,11 @@ let o = vflip(input);
 npm test
 ```
 
+## Release History
+
+* 2.1.0
+    - updated dependencies
+
 ## Credits and Licensing
 
 Created by [Jon Stout](http://www.jonstout.net). Licensed under [the MIT license](http://opensource.org/licenses/MIT).
