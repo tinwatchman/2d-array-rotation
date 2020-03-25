@@ -1,6 +1,6 @@
 {
   "name": "2d-array-rotation",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Rotates two-dimensional arrays clockwise by 90 degrees, 180 degrees, or 270 degrees",
   "author": {
     "name": "Jon Stout",

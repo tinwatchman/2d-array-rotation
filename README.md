@@ -209,6 +209,8 @@ npm test
 
 * 2.1.0
     - updated dependencies
+* 2.1.1
+    - updated dependencies
 
 ## Credits and Licensing
 
